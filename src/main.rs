@@ -17,11 +17,10 @@ pub fn main() -> Result<(), Box<dyn Error>> {
     let word_list = get_word_list().expect("Couldn't open the word list");
     let selected_word = word_list.choose(&mut rng).unwrap();
 
-    let mut game_over = false;
     let mut attempts = 0;
     let mut attempted_words: Vec<Word> = Vec::new();
 
-    while !game_over {
+    loop {
         print_score(&attempted_words);
         
         let word = get_word(&word_list)?;
@@ -34,8 +33,8 @@ pub fn main() -> Result<(), Box<dyn Error>> {
 
         if deunicoded_input == deunicoded_selected {
             print!("\x1B[2J\x1B[1;1H");
-            game_over = true;
             print_score(&attempted_words);
+            println!("You win.");
             break;
         }
 
@@ -43,7 +42,7 @@ pub fn main() -> Result<(), Box<dyn Error>> {
         if attempts >= 6 {
             print!("\x1B[2J\x1B[1;1H");
             print_score(&attempted_words);
-            game_over = true;
+            println!("The word was {}", selected_word);
             break;
         } else{
             print!("\x1B[2J\x1B[1;1H");

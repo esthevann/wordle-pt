@@ -60,9 +60,7 @@ pub fn main() -> Result<(), Box<dyn Error>> {
 
 fn print_score(attempted_words: &[Word]) {
     for i in attempted_words.iter() {
-        for j in &i.color {
-            print!("{}", j)
-        }
+        print!("{i}");
         print!(": {}", i.string);
         println!()
     }

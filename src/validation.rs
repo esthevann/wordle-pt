@@ -1,7 +1,6 @@
 use crate::input::read_input;
 use std::error::Error;
 
-
 pub fn get_word(word_list: &[String]) -> Result<String, Box<dyn Error>> {
     let word = loop {
         let word = read_input()?;
@@ -24,4 +23,3 @@ fn validate_word(word: &str, word_list: &[String]) -> bool {
         None => false,
     }
 }
-

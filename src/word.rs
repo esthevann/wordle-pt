@@ -1,7 +1,6 @@
 use std::fmt::Display;
 
-
-#[derive(Debug )]
+#[derive(Debug)]
 pub struct Word {
     pub string: String,
     pub color: Vec<Color>,
@@ -11,7 +10,7 @@ impl Word {
     pub fn new(str: &str, color: &[Color]) -> Self {
         Word {
             string: str.to_owned(),
-            color: color.to_vec()
+            color: color.to_vec(),
         }
     }
 }
@@ -22,7 +21,7 @@ impl Display for Word {
     }
 }
 
-#[derive(Debug, Clone, Copy )]
+#[derive(Debug, Clone, Copy)]
 pub enum Color {
     Black,
     Yellow,
@@ -34,13 +33,13 @@ impl Display for Color {
         match self {
             Color::Black => {
                 write!(f, "{}", emoji::symbols::geometric::WHITE_LARGE_SQUARE.glyph)
-            },
+            }
             Color::Yellow => {
                 write!(f, "{}", emoji::symbols::geometric::YELLOW_SQUARE.glyph)
-            },
+            }
             Color::Green => {
                 write!(f, "{}", emoji::symbols::geometric::GREEN_SQUARE.glyph)
-            },
+            }
         }
     }
 }
